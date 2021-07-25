@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) { 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Appp name"),
+        title: const Text("Appp name"),
       ),
         
       body : Center(
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           child: Text('hutu tutu $days $name'),
         ),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
   }
 
