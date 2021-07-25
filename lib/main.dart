@@ -1,4 +1,5 @@
 import 'package:dhur_hoy_na_ken/pages/login_page.dart';
+import 'package:dhur_hoy_na_ken/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
@@ -23,14 +24,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.lato().fontFamily,
        ),
+      //  debugShowCheckedModeBanner: false, eta asole amade screen a j degug lekha ta ase ota soranor jonno use kora hoy r ki
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         ),
         initialRoute: "/",
         routes: {
           "/": (context)=> LoginPage(),
-          "/home": (context)=> const HomePage(),
-          "/login": (context)=> LoginPage(),
+          MyRoutes.homeRoute: (context)=> const HomePage(),
+          MyRoutes.loginRoute: (context)=> LoginPage(),
         },
     );
   }
