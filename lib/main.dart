@@ -24,11 +24,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.lato().fontFamily,
        ),
-      //  debugShowCheckedModeBanner: false, eta asole amade screen a j degug lekha ta ase ota soranor jonno use kora hoy r ki
+       //  debugShowCheckedModeBanner asole amade screen a j degug lekha ta ase ota soranor jonno use kora hoy r ki
+       debugShowCheckedModeBanner: false, 
+      
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         ),
-        initialRoute: "/",
+        initialRoute: MyRoutes.homeRoute,
         routes: {
           "/": (context)=> const LoginPage(),
           MyRoutes.homeRoute: (context)=> const HomePage(),

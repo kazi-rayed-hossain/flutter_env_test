@@ -1,3 +1,4 @@
+import 'package:dhur_hoy_na_ken/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
           child: Text('hutu tutu $days $name'),
         ),
       ),
-      drawer: const Drawer(),
+      drawer: const myDrawer(),
     );
   }
 
