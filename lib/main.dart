@@ -1,7 +1,8 @@
 import 'package:dhur_hoy_na_ken/pages/login_page.dart';
 import 'package:dhur_hoy_na_ken/utils/routes.dart';
+import 'package:dhur_hoy_na_ken/widgets/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'widgets/themes.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -20,16 +21,13 @@ class MyApp extends StatelessWidget {
 
       //themeMode holo ami ki amar device er kon mode a rakhbo light or dark eta thik kore
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-       ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      
        //  debugShowCheckedModeBanner asole amade screen a j degug lekha ta ase ota soranor jonno use kora hoy r ki
        debugShowCheckedModeBanner: false, 
       
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        ),
+      
         initialRoute: MyRoutes.homeRoute,
         routes: {
           "/": (context)=> const LoginPage(),
