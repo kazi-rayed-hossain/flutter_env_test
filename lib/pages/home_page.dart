@@ -1,4 +1,7 @@
 // import 'dart:ui';
+// import 'dart:html';
+
+import 'package:dhur_hoy_na_ken/utils/routes.dart';
 import 'package:dhur_hoy_na_ken/widgets/home_widgets/catalog_header.dart';
 import 'package:dhur_hoy_na_ken/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +18,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
-
-
+import 'cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,6 +54,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MyTheme.creamColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: ()=> Navigator.pushNamed(context, MyRoutes.cartRoute),
+          backgroundColor: MyTheme.darkBluishColor,
+          child: const Icon(CupertinoIcons.cart),
+        ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

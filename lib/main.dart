@@ -1,3 +1,4 @@
+import 'package:dhur_hoy_na_ken/pages/cart_page.dart';
 import 'package:dhur_hoy_na_ken/pages/login_page.dart';
 import 'package:dhur_hoy_na_ken/utils/routes.dart';
 import 'package:dhur_hoy_na_ken/widgets/themes.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           "/": (context)=> const LoginPage(),
           MyRoutes.homeRoute: (context)=> const HomePage(),
           MyRoutes.loginRoute: (context)=> const LoginPage(),
+          MyRoutes.cartRoute: (context)=> const CartPage(),
         },
     );
   }
