@@ -1,6 +1,9 @@
 import 'package:dhur_hoy_na_ken/models/catalog.dart';
 
 class CartModel {
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  factory CartModel() => cartModel;
   // catalog fild
   late CatalogModel _catalog;
 

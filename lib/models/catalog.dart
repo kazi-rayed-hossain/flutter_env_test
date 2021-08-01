@@ -3,6 +3,10 @@ import 'dart:convert';
 class CatalogModel {
   static List<Item> items = items;
 
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catModel;
+
   // get Item by ID
   Item getById(int id) =>
       // ignore: null_closures
