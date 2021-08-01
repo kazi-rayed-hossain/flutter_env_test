@@ -7,7 +7,7 @@ import 'package:dhur_hoy_na_ken/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter/material.dart';
 import 'package:dhur_hoy_na_ken/models/catalog.dart';
 // import 'package:dhur_hoy_na_ken/widgets/drawer.dart';
-import 'package:dhur_hoy_na_ken/widgets/themes.dart';
+// import 'package:dhur_hoy_na_ken/widgets/themes.dart';
 import 'package:flutter/cupertino.dart';
 
 // import 'package:dhur_hoy_na_ken/widgets/item_widgets.dart';
@@ -18,7 +18,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
-import 'cart_page.dart';
+// import 'cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -53,11 +53,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor:context.canvasColor,
         floatingActionButton: FloatingActionButton(
           onPressed: ()=> Navigator.pushNamed(context, MyRoutes.cartRoute),
-          backgroundColor: MyTheme.darkBluishColor,
-          child: const Icon(CupertinoIcons.cart),
+          // ignore: deprecated_member_use
+          backgroundColor: context.theme.buttonColor,
+          child: const Icon(CupertinoIcons.cart,color: Colors.white,),
         ),
         body: SafeArea(
           child: Container(

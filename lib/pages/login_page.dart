@@ -1,5 +1,6 @@
 import 'package:dhur_hoy_na_ken/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
 
         // child: Center(
         //   child: Text("login page",
@@ -104,7 +105,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       // animated button
                       Material(
-                        color: Colors.deepPurple,
+                        // ignore: deprecated_member_use
+                        color: context.theme.buttonColor,
                         borderRadius:
                             BorderRadius.circular(changeButton ? 50 : 8),
                         child: InkWell(

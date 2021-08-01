@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       
 
       //themeMode holo ami ki amar device er kon mode a rakhbo light or dark eta thik kore
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       

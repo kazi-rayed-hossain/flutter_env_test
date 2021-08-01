@@ -1,5 +1,5 @@
 import 'package:dhur_hoy_na_ken/models/catalog.dart';
-import 'package:dhur_hoy_na_ken/widgets/themes.dart';
+// import 'package:dhur_hoy_na_ken/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -15,9 +15,9 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
@@ -26,7 +26,8 @@ class HomeDetailPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
+                          // ignore: deprecated_member_use
+                          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                           shape: MaterialStateProperty.all(const StadiumBorder())
                       ),
                       child: "Add to cart".text.make(),
@@ -50,13 +51,13 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
 
-                      catalog.name.text.xl4.color(MyTheme.darkBluishColor).bold.make(),
-                      catalog.desc.text.color(MyTheme.darkBluishColor).bold.make(),
+                      catalog.name.text.xl4.color(context.accentColor).bold.make(),
+                      catalog.desc.text.color(context.accentColor).bold.make(),
                       10.heightBox,
                       "Sea lorem consetetur accusam amet sit voluptua. Est diam est labore accusam diam et et lorem. Eos vero et justo tempor clita. Labore et nonumy diam lorem sanctus amet elitr est stet, invidunt sea accusam aliquyam elitr. Diam rebum amet sea ut dolores stet justo, sanctus sed clita takimata et.".text.make(),
 
