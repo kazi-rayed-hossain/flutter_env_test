@@ -1,13 +1,18 @@
+import 'package:dhur_hoy_na_ken/core/store.dart';
 import 'package:dhur_hoy_na_ken/pages/cart_page.dart';
 import 'package:dhur_hoy_na_ken/pages/login_page.dart';
 import 'package:dhur_hoy_na_ken/utils/routes.dart';
 import 'package:dhur_hoy_na_ken/widgets/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'widgets/themes.dart';
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  
+  runApp(VxState(
+    store: MyStore(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
