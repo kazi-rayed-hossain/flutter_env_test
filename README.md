@@ -1,4 +1,4 @@
-# dhur_hoy_na_ken
+# flutter 1st project try
 
 A new Flutter project.
 
