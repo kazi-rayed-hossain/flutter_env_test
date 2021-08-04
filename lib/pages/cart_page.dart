@@ -2,6 +2,7 @@ import 'package:dhur_hoy_na_ken/core/store.dart';
 import 'package:dhur_hoy_na_ken/models/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:vxstate/vxstate.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class CartPage extends StatelessWidget {
         children: [
           _CartList().p32().expand(),
           const Divider(),
-          const _CartTotal(),
+          _CartTotal(),
         ],
       ),
     );
@@ -26,8 +27,6 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-  const _CartTotal({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final CartModel _cart = (VxState.store as MyStore).cart;
@@ -36,13 +35,14 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          // ignore: deprecated_member_use
-          "\$${_cart.totalprice}"
-              .text
-              .xl4
-              // ignore: deprecated_member_use
-              .color(context.theme.accentColor)
-              .make(),
+          // VxBuilder(
+          //   mutations: {RemoveMutation},
+          //   builder: (context, _) {
+          //     return "\$${_cart.totalprice}".text.xl4
+          //         ignore: deprecated_member_use
+          //         .color(context.theme.accentColor).make();
+          //   },
+          // ),
           30.widthBox,
           ElevatedButton(
             onPressed: () {
@@ -64,9 +64,9 @@ class _CartTotal extends StatelessWidget {
 }
 
 class _CartList extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
     return _cart.items.isEmpty
         ? "Nothing to show".text.xl3.makeCentered()
@@ -77,7 +77,8 @@ class _CartList extends StatelessWidget {
                   trailing: IconButton(
                     icon: const Icon(Icons.remove_circle_outline),
                     onPressed: () {
-                      _cart.remove(_cart.items[index]);
+                      RemoveMutation(_cart.items[index]);
+                      // _cart.remove(_cart.items[index]);
                       // remove er por setstate korte hobe na hole kaj korbe na
                       // setState(() {});
                     },
