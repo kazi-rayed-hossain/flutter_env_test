@@ -1,7 +1,9 @@
 // import 'dart:ui';
 // import 'dart:html';
 
+import 'package:dhur_hoy_na_ken/core/store.dart';
 import 'package:dhur_hoy_na_ken/utils/routes.dart';
+import 'package:dhur_hoy_na_ken/widgets/drawer.dart';
 import 'package:dhur_hoy_na_ken/widgets/home_widgets/catalog_header.dart';
 import 'package:dhur_hoy_na_ken/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter/material.dart';
@@ -52,14 +54,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     return Scaffold(
-        backgroundColor:context.canvasColor,
+        backgroundColor: context.canvasColor,
         floatingActionButton: FloatingActionButton(
-          onPressed: ()=> Navigator.pushNamed(context, MyRoutes.cartRoute),
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
           // ignore: deprecated_member_use
           backgroundColor: context.theme.buttonColor,
-          child: const Icon(CupertinoIcons.cart,color: Colors.white,),
-        ),
+          child: const Icon(
+            CupertinoIcons.cart,
+            color: Colors.white,
+          ),
+        ).badge(color: Vx.red500,size: 20, count: _cart.items.length),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,
@@ -76,7 +82,9 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-        ));
+        ),
+        
+    );
   }
 }
 
